@@ -125,7 +125,7 @@ public class Inventory {
      * @return String
      */
     public String toString() {
-    	String seperator = System.getProperty("line.seperator");
+    	final String seperator = System.getProperty("line.seperator");
 		return "Coffee: " + getCoffee() + seperator +
 			"Milk: " + getMilk() + seperator +
 			"Sugar: " + getSugar() + seperator +

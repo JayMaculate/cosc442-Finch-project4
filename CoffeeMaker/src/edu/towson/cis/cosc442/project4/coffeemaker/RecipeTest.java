@@ -12,13 +12,15 @@ import static org.junit.Assert.*;
  */
 public class RecipeTest {
 	
-	@Test (expected = Exception.class)
-	public void testEqualsNull() {
-		Recipe fixture = RecipeFactory.createRecipe();
+	@Test 
+	public void testEqualsNull() throws Exception {
+		Recipe fixture = new Recipe();
+		fixture.setName((String) null);
+		Recipe r = new Recipe();
 		
-		boolean result = fixture.equals(null);
+		boolean result = fixture.equals(r);
 		
-		assertEquals(true, result);
+		assertEquals(false, result);		
 	}
 
 	/**
@@ -31,9 +33,10 @@ public class RecipeTest {
 	@Test
 	public void testEquals_1()
 		throws Exception {
-		Recipe fixture = RecipeFactory.createRecipe6();
-		Recipe r = RecipeFactory.createRecipe();
-
+		Recipe fixture = new Recipe();
+		fixture.setName("");
+		Recipe r = new Recipe();
+		
 		boolean result = fixture.equals(r);
 
 		// add additional test code here
@@ -401,6 +404,8 @@ public class RecipeTest {
 		// add additional test code here
 		assertEquals(null, result);
 	}
+	
+	
 
 	/**
 	 * Perform pre-test initialization.
